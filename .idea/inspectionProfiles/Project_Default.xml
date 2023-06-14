@@ -1,0 +1,18 @@
+<component name="InspectionProjectProfileManager">
+  <profile version="1.0">
+    <option name="myName" value="Project Default" />
+    <inspection_tool class="PyUnresolvedReferencesInspection" enabled="true" level="WARNING" enabled_by_default="true">
+      <option name="ignoredIdentifiers">
+        <list>
+          <option value="VM_REST_Service.Player.admin.GameMap" />
+          <option value="VM_REST_Service.Inventory.admin.Player" />
+          <option value="labs.Player.models.Location" />
+          <option value="mysite.vocab.models.Users" />
+          <option value="iterms.vocabs.models.Term.objects" />
+          <option value="vocabs.models.Term.objects" />
+          <option value="vocabs.models.Dictionary.objects" />
+        </list>
+      </option>
+    </inspection_tool>
+  </profile>
+</component>

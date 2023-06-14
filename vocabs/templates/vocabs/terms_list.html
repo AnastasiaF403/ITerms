@@ -1,0 +1,42 @@
+{% extends 'vocabs/base.html' %}
+{% load static %}
+
+<link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+{% block content %}
+
+    <section>
+        <div class="container search">
+            <div class="row align-items-center">
+                <div class="col-md-12" style="width: 250px;height:50px;">
+            <form action="{% url 'search_results' %}" method="get">
+                <input name="q" type="text" placeholder="Поиск...">
+            </form>
+                </div>
+        </div>
+        <div class="row align-items-center">
+              <div class="col-md-12">
+                    <table class="table">
+                      <tbody>
+                          <tr style="font-size: 18px;">
+                          <th scope="col" >Термин</th>
+                          <th scope="col">Транскрипция</th>
+                          <th scope="col">Пример</th>
+                              <th scope="col">Перевод</th>
+                            </tr>
+                      {% for t in terms %}
+                        <tr>
+                            <td style="font-weight: 500;font-size: 16px;">{{ t.term }}</td>
+                            <td style="font-size: 16px;">{{ t.transcript }}</td>
+                            <td style="font-size: 16px;">{{ t.examples }}</td>
+                            <td style="font-size: 16px;">{{t.translate}}</td>
+                        </tr>
+                      {% endfor %}
+                      </tbody>
+                    </table>
+            </div>
+
+          </div>
+        </div>
+    </section>
+
+{% endblock %}

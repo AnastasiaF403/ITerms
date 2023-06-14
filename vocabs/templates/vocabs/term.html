@@ -1,0 +1,21 @@
+{% extends 'vocabs/base.html' %}
+{% load static %}
+
+{% block content %}
+<article>
+    <h4>{{ terms.term }}</h4>
+    {% if not check_card %}
+        <p>{{ terms.translat }}</p>
+        <hr>
+    {% else %}
+        <details>
+            <summary>Показать ответ</summary>
+            <p>{{ terms.translat }}</p>
+        </details>
+        <hr>
+        {% include "vocabs/term_check_form.html" with solved=True %}
+        {% include "vocabs/term_check_form.html" with solved=False %}
+    {% endif %}
+</article>
+
+{% endblock %}

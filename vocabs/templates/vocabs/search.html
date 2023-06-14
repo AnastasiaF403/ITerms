@@ -1,0 +1,14 @@
+{% extends 'vocabs/base.html' %}
+{% load static %}
+
+<link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+
+<h1>Результаты поиска</h1>
+
+<ul>t
+  {% for t in object_list %}
+    <li>
+      {{ t.term }}, {{ t.transcript }}, {{ t.translate}
+    </li>
+  {% endfor %}
+</ul>

@@ -1,0 +1,14 @@
+{% extends 'vocabs/base.html' %}
+{% load static %}
+{% block content %}
+    <div class="jumbotron my-4">
+        <a style="
+        margin: 200px auto 0 auto;
+        display: block;
+        width: 300px;
+        text-align: center;
+        text-decoration:none;
+        font-size: 30px;
+        font-weight: bold" href="{% url 'repeat_words' %}">Повторить изученные слова</a>
+    </div>
+{% endblock %}

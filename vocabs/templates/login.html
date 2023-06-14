@@ -1,0 +1,21 @@
+{% extends 'vocabs/base.html' %}
+
+{% block content %}
+<div class="login">
+    <div class="form">
+        <h1 class="form h2">{{title}}</h1>
+        <form method="post">
+        {% csrf_token %}
+        <div class="form-error">{{ form.non_field_errors }}</div>
+        {% for f in form %}
+            <p><label class="form-label container" for="{{ f.id_for_label }}"></label>{{ f }}</p>
+            <div class="form-error">{{ f.errors }}</div>
+        {% endfor %}
+        <button class="button rl" type="submit">Войти</button>
+        <div class="login_signup">Нет аккаунта? <a href="{% url 'register' %}" id="signup">Зарегистрируйтесь</a></div>
+</form>
+
+</div>
+</div>
+
+{% endblock %}

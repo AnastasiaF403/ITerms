@@ -1,0 +1,21 @@
+{% extends 'vocabs/base.html' %}
+{% load static %}
+{% block content %}
+    <div class="jumbotron my-4">
+        <div class="quiz_result">
+            <h3>Вы ответили правильно на {{ count }} из 5 вопросов!</h3>
+            {% for answer in answers %}
+                {% if answer.result %}
+                    <h4>{{ forloop.counter }}.Вы ответили правильно!</h4>
+                    <p><strong>{{ answer.word }}</strong> переводится как: <strong>{{ answer.answer }}</strong></p>
+                    <p>{{ answer.example }}</p>
+                {% else %}
+                    <h4>{{ forloop.counter }}.Ваш ответ неверный!</h4>
+                    <p><strong>{{ answer.word }}</strong> переводится как: <strong>{{ answer.right_answer }}</strong></p>
+                    <p>Ваш ответ: {{ answer.answer }}</p>
+                    <p>{{ answer.example }}</p>
+                {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}

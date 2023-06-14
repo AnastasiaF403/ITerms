@@ -1,0 +1,32 @@
+{% extends 'vocabs/base.html' %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+{% block content %}
+    <section class="hero">
+      <div class="container hero">
+        <div class="row align-items-center">
+          <div class="col-lg-7 col-sm-12 img_box">
+            <img src="{% static 'fon.svg' %}">
+          </div>
+          <div class="col-lg-5 col-sm-12 name_box align-middle">
+            <h1 class="display-4">ITerms</h1>
+                  <p class="lead" style="font-weight: 500;">Выучите английский для IT бесплатно!</p>
+
+            <p class="lead">
+                {% if request.user.is_authenticated %}
+                {{ request.user.first_name }}
+                <a class="btn btn-primary btn-lg mybtn" href="{% url 'terms_list' %}" role="button">Начать</a>
+            {% else %}
+                <a class="btn btn-primary btn-lg mybtn" href="{% url 'register' %}" role="button">Начать</a>
+            {% endif %}
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+{% endblock %}
+ <footer class="footer">
+      <div class="container">
+        <span class="text-muted f">© 2023</span>
+      </div>
+    </footer>

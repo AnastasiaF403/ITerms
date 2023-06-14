@@ -1,0 +1,17 @@
+{% extends 'vocabs/base.html' %}
+{% load static %}
+{% block content %}
+    <div class="jumbotron my-4">
+        <p class="train_word">
+            {{ word.term }}
+        </p>
+        <p class="train_transcription"> {{ word.transcript }} </p>
+        <p class="train_translate"> {{ word.translate }} </p>
+    </div>
+    <form action="" method="post" class="check_word_form">
+        {% csrf_token %}
+        <button type="submit" name="i_know" class="btn btn-secondary">Знаю</button>
+        <button type="submit" name="learn" class="btn btn-primary">Учить</button>
+    </form>
+    <p class="check_count">{{ count }} / 5</p>
+{% endblock %}

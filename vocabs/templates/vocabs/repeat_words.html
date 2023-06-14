@@ -1,0 +1,18 @@
+{% extends 'vocabs/base.html' %}
+{% load static %}
+{% block content %}
+    <div class="jumbotron my-4">
+        <p class="train_word">{{ word.term }}</p>
+        <p class="random_translate" data-word="{{ random.term }}">{{ random.translate }}</p>
+
+        <form class="quiz_answers repeat_answers" method="post">
+            {% csrf_token %}
+            <button id="repeat_answers_btn_choice" class="btn btn-outline-dark repeat_answers_btn" name="choice" value="True" type="submit">Правильно</button>
+            <button id="repeat_answers_btn_choice" class="btn btn-outline-dark repeat_answers_btn" name="choice" value="False" type="submit">Не правильно</button>
+            <button class="btn btn-success resume_result" name="result" type="submit">Подвести итог</button>
+        </form>
+    </div>
+{% endblock %}
+{% block scripts %}
+    <script src="{% static 'js/quiz_script.js' %}"></script>
+{% endblock %}

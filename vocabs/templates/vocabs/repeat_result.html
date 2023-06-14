@@ -1,0 +1,20 @@
+{% extends 'vocabs/base.html' %}
+{% load static %}
+{% block content %}
+    <div class="jumbotron my-4">
+        <div class="quiz_result">
+            <h3>Вы ответили правильно на {{ count_wrong }} из {{ count }} вопросов!</h3>
+            <h4>Ошибки:</h4>
+            {% for answer in wrong_answers %}
+                {% if answer.equal %}
+                    <p><strong>{{ answer.word.term }}</strong> переводится как: <strong>{{ answer.word.translate }}</strong></p>
+                    <p>{{ answer.example }}</p>
+                {% else %}
+                    <p><strong>{{ answer.word.term }}</strong> переводится как: <strong>{{ answer.word.translate }}</strong></p>
+{#                    <p>Ваш ответ: {{ answer.answer }}</p>#}
+                    <p>{{ answer.word.example }}</p>
+                {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}

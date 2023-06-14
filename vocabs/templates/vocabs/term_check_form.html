@@ -1,0 +1,10 @@
+<form method="post">
+    {% csrf_token %}
+    <input type="hidden" name="term_id" value="{{ terms.id }}">
+    <input type="hidden" name="solved" value="{{ solved }}">
+    {% if solved %}
+        <input type="submit" value="Помню"/>
+    {% else %}
+        <input type="submit" value="Не помню"/>
+    {% endif %}
+</form>

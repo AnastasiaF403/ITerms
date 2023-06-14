@@ -1,0 +1,17 @@
+{% extends 'vocabs/base.html' %}
+{% load static %}
+{% block content %}
+    <div class="jumbotron my-4" style="height: 80vh;">
+        <p class="train_word">{{ word.term }}</p>
+
+        <form class="quiz_answers" method="post">
+            {% csrf_token %}
+            {% for one_word in words %}
+                <button id="quiz_answers_btn" class="btn btn-outline-dark quiz_answers_btn" name="word" value="{{ one_word.term }}" type="submit">{{ one_word.translate }}</button>
+            {% endfor %}
+        </form>
+    </div>
+{% endblock %}
+{% block scripts %}
+    <script src="{% static 'js/quiz_script.js' %}"></script>
+{% endblock %}

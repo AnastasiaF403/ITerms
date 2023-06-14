@@ -1,0 +1,25 @@
+{% extends 'vocabs/base.html' %}
+{% load static %}
+
+<link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+<h1>Результаты поиска</h1>
+{% block content %}
+<div class="row align-items-center">
+              <div class="col-md-12">
+                    <table class="table">
+                      <tbody>
+                      {% for t in object_list %}
+                        <tr>
+                            <td>{{ t.term }}</td>
+                            <td>{{ t.transcript }}</td>
+                            <td>{{ t.examples }}</td>
+                            <td>{{t.translat}}</td>
+                        </tr>
+                      {% endfor %}
+                      </tbody>
+                    </table>
+            </div>
+
+          </div>
+        </div>
+{% endblock %}
